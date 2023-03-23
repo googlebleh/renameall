@@ -23,8 +23,10 @@ fn main() -> anyhow::Result<()>
 
         for orig_fmt in &fmts {
             if let Ok(date) = chrono::NaiveDate::parse_from_str(&fname, orig_fmt) {
+                println!("matched fmt={}", orig_fmt);
                 let new_fname = format!("{}", date.format("%Y.%m.%d.pdf"));
                 println!("{} --> {}", fname, new_fname);
+                println!("");
             }
         }
     }
